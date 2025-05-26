@@ -5,3 +5,4 @@ old_codebase/
 renv/
 targets/
 .Rprofile
+.lintr
