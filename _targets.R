@@ -6,6 +6,7 @@ suppressPackageStartupMessages(
         library(gdata)
         library(docstring)
         library(stringr)
+		library(dplyr)
 	}
 )
 
@@ -99,3 +100,27 @@ for (sub_directory in sub_directories) {
 ###################################################
 # ACTUAL PIPELINE
 ###################################################
+
+
+#--------------------------------------------------
+# pipeline stats
+
+targets_pipeline_stats <- rlang::list2(
+	tar_file(
+		pipeline_stats,
+		helpers_monitoring_pipeline(),
+		cue = tar_cue(mode = "always")
+	),
+    tar_target(
+        worker_stats,
+        reading_worker_stats(),
+        cue = tar_cue(mode = "always")
+    )
+)
+
+#----------------------------------------------
+# all together
+
+rlang::list2(
+    targets_pipeline_stats
+)
