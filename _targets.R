@@ -7,6 +7,7 @@ suppressPackageStartupMessages(
         library(docstring)
         library(stringr)
 		library(dplyr)
+		library(glue)
 	}
 )
 
@@ -101,6 +102,31 @@ for (sub_directory in sub_directories) {
 # ACTUAL PIPELINE
 ###################################################
 
+#--------------------------------------------------
+# reading and preparation housing data
+
+targets_housing_data <- rlang::list2(
+	tar_eval(
+		list(
+			tar_file_read(
+				housing_data,
+				file.path(
+					config_paths()[["red_data_path"]],
+					paste0(
+						housing_types,
+						"_SUF_ohneText.dta"
+					)
+				),
+				reading_housing_data(!!.x),
+				format = "fst"
+			)
+		),
+		values = list(
+			housing_types = helpers_target_names()[["static_housing_types"]],
+			housing_data = rlang::syms(helpers_target_names()[["static_housing_data_org"]])
+		)
+	)
+)
 
 #--------------------------------------------------
 # pipeline stats
@@ -122,5 +148,6 @@ targets_pipeline_stats <- rlang::list2(
 # all together
 
 rlang::list2(
+	targets_housing_data,
     targets_pipeline_stats
 )
