@@ -2,7 +2,7 @@ output/
 data
 src/helpers/config.R
 renv/
-targets/
+_targets/
 .Rprofile
 .lintr
 logs/
