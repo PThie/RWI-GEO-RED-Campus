@@ -355,5 +355,5 @@ cleaning_housing_data <- function(
     #--------------------------------------------------
     # return
 
-    return(NULL)
+    return(housing_data_prep)
 }
