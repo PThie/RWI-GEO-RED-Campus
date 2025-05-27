@@ -16,9 +16,11 @@ helpers_target_names <- function() {
     target_names <- list(
         "static_housing_types" = static_housing_types,
         #--------------------------------------------------
-        # Name for reading housing data
         "static_housing_data_org" = glue::glue(
             "{static_housing_types}_housing_data_org"
+        ),
+        "static_housing_data_cleaned" = glue::glue(
+            "{static_housing_types}_housing_data_cleaned"
         )
     )
 
