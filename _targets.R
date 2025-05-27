@@ -119,11 +119,19 @@ targets_housing_data <- rlang::list2(
 				),
 				reading_housing_data(!!.x),
 				format = "fst"
+			),
+			tar_fst(
+				housing_data_cleaned,
+				cleaning_housing_data(
+					housing_type = housing_types,
+					housing_data = housing_data
+				)
 			)
 		),
 		values = list(
 			housing_types = helpers_target_names()[["static_housing_types"]],
-			housing_data = rlang::syms(helpers_target_names()[["static_housing_data_org"]])
+			housing_data = rlang::syms(helpers_target_names()[["static_housing_data_org"]]),
+			housing_data_cleaned = rlang::syms(helpers_target_names()[["static_housing_data_cleaned"]])
 		)
 	)
 )
