@@ -103,6 +103,16 @@ for (sub_directory in sub_directories) {
 ###################################################
 
 #--------------------------------------------------
+# Folder generation
+
+targets_preparation_folders <- rlang::list2(
+    tar_target(
+        empty_folders,
+        creating_folder_structure()
+    )
+)
+
+#--------------------------------------------------
 # reading and preparation housing data
 
 targets_housing_data <- rlang::list2(
