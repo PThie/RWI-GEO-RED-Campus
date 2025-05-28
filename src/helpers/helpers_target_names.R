@@ -21,6 +21,9 @@ helpers_target_names <- function() {
         ),
         "static_housing_data_cleaned" = glue::glue(
             "{static_housing_types}_housing_data_cleaned"
+        ),
+        "static_large_cities_sampled" = glue::glue(
+            "{static_housing_types}_large_cities_sampled"
         )
     )
 
