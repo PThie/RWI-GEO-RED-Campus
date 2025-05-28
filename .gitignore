@@ -6,3 +6,4 @@ _targets/
 .Rprofile
 .lintr
 logs/
+documentation/
