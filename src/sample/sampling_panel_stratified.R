@@ -119,6 +119,7 @@ sampling_panel_stratified <- function(
     # export
 
     data.table::fwrite(
+        housing_data_sampled,
         file.path(
             config_paths()[["data_path"]],
             config_globals()[["next_version"]],
@@ -126,7 +127,7 @@ sampling_panel_stratified <- function(
             paste0(
                 "CampusFile_",
                 housing_type,
-                "_cities.dta"
+                "_cities.csv"
             )
         )
     )
