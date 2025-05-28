@@ -126,12 +126,19 @@ targets_housing_data <- rlang::list2(
 					housing_type = housing_types,
 					housing_data = housing_data
 				)
+			),
+			tar_fst(
+				large_cities_sampled,
+				sampling_large_cities(
+					housing_data = housing_data_cleaned
+				)
 			)
 		),
 		values = list(
 			housing_types = helpers_target_names()[["static_housing_types"]],
 			housing_data = rlang::syms(helpers_target_names()[["static_housing_data_org"]]),
-			housing_data_cleaned = rlang::syms(helpers_target_names()[["static_housing_data_cleaned"]])
+			housing_data_cleaned = rlang::syms(helpers_target_names()[["static_housing_data_cleaned"]]),
+			large_cities_sampled = rlang::syms(helpers_target_names()[["static_large_cities_sampled"]])
 		)
 	)
 )
@@ -156,6 +163,7 @@ targets_pipeline_stats <- rlang::list2(
 # all together
 
 rlang::list2(
+	targets_preparation_folders,
 	targets_housing_data,
     targets_pipeline_stats
 )
