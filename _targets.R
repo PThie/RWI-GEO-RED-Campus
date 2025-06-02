@@ -9,6 +9,8 @@ suppressPackageStartupMessages(
 		library(dplyr)
 		library(glue)
 		library(data.table)
+		library(openxlsx)
+		library(kabelExtra)
 	}
 )
 
@@ -163,6 +165,20 @@ targets_housing_data <- rlang::list2(
 )
 
 #--------------------------------------------------
+# descriptives
+
+targets_descriptives <- rlang::list2(
+	tar_fst(
+		panel_NOBS,
+		calculating_nobs_panel(
+			HK_data = HK_panel_sampled,
+			WK_data = WK_panel_sampled,
+			WM_data = WM_panel_sampled
+		)
+	)
+)
+
+#--------------------------------------------------
 # pipeline stats
 
 targets_pipeline_stats <- rlang::list2(
@@ -184,5 +200,6 @@ targets_pipeline_stats <- rlang::list2(
 rlang::list2(
 	targets_preparation_folders,
 	targets_housing_data,
+	targets_descriptives,
     targets_pipeline_stats
 )
