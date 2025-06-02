@@ -10,7 +10,7 @@ suppressPackageStartupMessages(
 		library(glue)
 		library(data.table)
 		library(openxlsx)
-		library(kabelExtra)
+		library(kableExtra)
 	}
 )
 
@@ -140,6 +140,8 @@ targets_housing_data <- rlang::list2(
 					housing_data = housing_data
 				)
 			),
+			#--------------------------------------------------
+			# Creating panel Campus Files
 			tar_fst(
 				large_cities_sampled,
 				sampling_large_cities(
@@ -152,6 +154,14 @@ targets_housing_data <- rlang::list2(
 					housing_type = housing_types,
 					housing_data = large_cities_sampled
 				)
+			),
+			#--------------------------------------------------
+			# Creating cross-section Campus Files
+			tar_fst(
+				latest_year_sampled,
+				sampling_latest_year(
+					housing_data = housing_data_cleaned
+				)
 			)
 		),
 		values = list(
@@ -159,7 +169,8 @@ targets_housing_data <- rlang::list2(
 			housing_data = rlang::syms(helpers_target_names()[["static_housing_data_org"]]),
 			housing_data_cleaned = rlang::syms(helpers_target_names()[["static_housing_data_cleaned"]]),
 			large_cities_sampled = rlang::syms(helpers_target_names()[["static_large_cities_sampled"]]),
-			panel_sampled = rlang::syms(helpers_target_names()[["static_panel_sampled"]])
+			panel_sampled = rlang::syms(helpers_target_names()[["static_panel_sampled"]]),
+			latest_year_sampled = rlang::syms(helpers_target_names()[["static_latest_year_sampled"]])
 		)
 	)
 )
