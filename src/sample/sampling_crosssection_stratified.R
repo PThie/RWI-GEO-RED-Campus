@@ -90,7 +90,7 @@ sampling_crosssection_stratified <- function(
                 )
             )
     } else {
-        housing_data_sample <- housing_data_sampled |>
+        housing_data_sampled <- housing_data_sampled |>
             dplyr::mutate(
                 insample = dplyr::case_when(
                     NOBS_munic <= 200 ~ 50 / NOBS_munic <= random,
