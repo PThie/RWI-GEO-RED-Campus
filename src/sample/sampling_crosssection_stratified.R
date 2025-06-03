@@ -114,9 +114,13 @@ sampling_crosssection_stratified <- function(
         dplyr::select(-c(
             "insample", 
             "NOBS_munic",
-            "NOBS_district",
             "random"
         ))
+
+    if (housing_type %in% c("HK", "WK")) {
+        housing_data_sampled <- housing_data_sampled |>
+            dplyr::select(-c("NOBS_district"))
+    }
 
     #--------------------------------------------------
     # export
