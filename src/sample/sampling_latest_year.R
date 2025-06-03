@@ -49,6 +49,12 @@ sampling_latest_year <- function(
         ))
 
     #--------------------------------------------------
+    # remove grid information
+
+    housing_data_prep <- housing_data_prep |>
+        dplyr::select(-c("ergg_1km"))
+
+    #--------------------------------------------------
     # return
 
     return(housing_data_prep)
