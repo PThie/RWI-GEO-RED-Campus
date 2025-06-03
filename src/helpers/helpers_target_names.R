@@ -35,6 +35,9 @@ helpers_target_names <- function() {
         # cross-section Campus Files
         "static_latest_year_sampled" = glue::glue(
             "{static_housing_types}_latest_year_sampled"
+        ),
+        "static_cross_section_sampled" = glue::glue(
+            "{static_housing_types}_cross_section_sampled"
         )
     )
 
