@@ -162,6 +162,13 @@ targets_housing_data <- rlang::list2(
 				sampling_latest_year(
 					housing_data = housing_data_cleaned
 				)
+			),
+			tar_fst(
+				cross_section_sampled,
+				sampling_crosssection_stratified(
+					housing_type = housing_types,
+					housing_data = latest_year_sampled
+				)
 			)
 		),
 		values = list(
@@ -170,7 +177,8 @@ targets_housing_data <- rlang::list2(
 			housing_data_cleaned = rlang::syms(helpers_target_names()[["static_housing_data_cleaned"]]),
 			large_cities_sampled = rlang::syms(helpers_target_names()[["static_large_cities_sampled"]]),
 			panel_sampled = rlang::syms(helpers_target_names()[["static_panel_sampled"]]),
-			latest_year_sampled = rlang::syms(helpers_target_names()[["static_latest_year_sampled"]])
+			latest_year_sampled = rlang::syms(helpers_target_names()[["static_latest_year_sampled"]]),
+			cross_section_sampled = rlang::syms(helpers_target_names()[["static_cross_section_sampled"]])
 		)
 	)
 )
