@@ -135,7 +135,7 @@ sampling_crosssection_stratified <- function(
                 "CampusFile_",
                 housing_type,
                 "_",
-                config_globals()[["maxyear_complete"]],
+                config_globals()[["max_year_complete"]],
                 ".csv"
             )
         )
