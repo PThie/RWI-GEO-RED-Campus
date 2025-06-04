@@ -30,8 +30,7 @@ calculating_nobs_panel <- function(
         obs <- dataset |>
             dplyr::group_by(gid2019) |>
             dplyr::summarise(
-                # {{varname}} := round(dplyr::n() / years, digits = -2)
-                {{varname}} := dplyr::n()
+                {{varname}} := round(dplyr::n() / years, digits = -2)
             ) |>
             as.data.frame()
         return(obs)
