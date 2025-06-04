@@ -38,7 +38,7 @@ ImmobilienScout24 for Teaching Purposes, RWI Projektberichte, Essen.
 
 ## DOI
 
-- Repository for V1.0: [![DOI:10.5281/zenodo.15309094](http://img.shields.io/badge/DOI-10.5281/zenodo.15309094-048BC0.svg)](https://zenodo.org/account/settings/github/repository/PThie/RWI-GEO-RED-Campus)
+- Repository for V1.0: [![DOI:10.5281/zenodo.15592891](http://img.shields.io/badge/DOI-10.5281/zenodo.15592891-048BC0.svg)](https://zenodo.org/account/settings/github/repository/PThie/RWI-GEO-RED-Campus)
 - RWI-GEO-RED Campus File V6 (Panel): [https://doi.org/10.7807/immo:red:panel:v6](https://doi.org/10.7807/immo:red:panel:v6)
 - RWI-GEO-RED Campus File V6 (Cross-Section): [https://doi.org/10.7807/immo:red:cross:v6](https://doi.org/10.7807/immo:red:cross:v6)
 
