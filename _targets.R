@@ -194,6 +194,14 @@ targets_descriptives <- rlang::list2(
 			WK_data = WK_panel_sampled,
 			WM_data = WM_panel_sampled
 		)
+	),
+	tar_fst(
+		cross_section_NOBS,
+		calculating_nobs_crosssection(
+			HK_data = HK_cross_section_sampled,
+			WK_data = WK_cross_section_sampled,
+			WM_data = WM_cross_section_sampled
+		)
 	)
 )
 
